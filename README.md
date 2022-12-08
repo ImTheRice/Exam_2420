@@ -59,3 +59,27 @@ echo -e "Regular users on the system are:\n$(cat /etc/passwd | awk -F: '$3 >= 10
 
 exit 0
 ```
+
+### Service File
+
+File
+
+```
+[Unit]
+Decription=Display regular users on the system and logged in users
+
+[Service]
+Type=oneshot
+ExecStart=/opt/users
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Move the service file
+
+`sudo mv users.service /etc/systemd/system`
+
+Enable, Start, Status
+
+![Output status](/Images/systemctlservice.png)
