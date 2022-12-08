@@ -83,3 +83,24 @@ Move the service file
 Enable, Start, Status
 
 ![Output status](/Images/systemctlservice.png)
+
+### Timer
+
+Status
+
+![Timer status](/Images/timerstatus.png)
+
+File
+
+```
+[Unit]
+Description=Timer to start the user.service one minute after boot once a day.
+
+[Timer]
+OnBootSec=1 m
+Unit=users.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
