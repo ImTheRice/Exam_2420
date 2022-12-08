@@ -35,3 +35,27 @@ Used insert for the `-eq 0` and `numbs`
  output looks like
  
  ![Output Json](/Images/outputjson.png)
+ 
+ ### Find users
+ 
+ Add user
+ 
+ ![New User](/Images/newuser.png)
+
+ Output:
+ 
+ ![User Output](/Images/outputusers.png)
+ 
+ Move the file somewhere else 
+
+ `sudo mv ./vagrant_data/users /opt/`
+ 
+ File
+ 
+ ```
+ #!/bin/bash
+ 
+echo -e "Regular users on the system are:\n$(cat /etc/passwd | awk -F: '$3 >= 1000 && $3 <= 5000 {print $1 "\t" $3 "\t" $7}')\n\nUsers currently logged in are:\n$(sudo who | awk '{ print $1 }')" > /etc/motd
+
+exit 0
+```
