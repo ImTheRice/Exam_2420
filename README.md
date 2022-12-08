@@ -12,6 +12,8 @@ Robeen Maharjan
 
 Used insert for the `-eq 0` and `numbs` 
 
+![Fixed](/Images/fixedfile.png)
+
 ### Journalctl
 
  ![Bootlog](/Images/bootlog.png)
